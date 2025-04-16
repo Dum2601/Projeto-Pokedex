@@ -1,0 +1,115 @@
+:root 
+{
+    --background: #000000;
+    --main: #0a0f2b;
+    --pokemon-box: rgb(177, 177, 177);
+}
+
+body 
+{
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+main 
+{
+    margin: 1.25em auto;
+    max-width: 68.75em;
+    background-color: var(--main);
+    padding: 1.875em 2%;
+    border-radius: 0.625em;
+}
+
+h2 
+{
+    text-align: center;
+}
+
+h2 img 
+{
+    width: 100%;
+    max-width: 18.75em;
+    height: auto;
+}
+
+.pokemon-boxes 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25em;
+    justify-content: center;
+}
+
+.pokemon-box 
+{
+    flex: 1 1 30%;
+    max-width: 30%;
+    background-color: var(--pokemon-box);
+    border-radius: 0.625em;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.pokemon-box img 
+{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.pokemon-box p 
+{
+    color: black;
+    font-size: 1.3125em;
+    padding: 0.625em 0;
+    margin: 0;
+}
+
+#button 
+{
+    text-align: center;
+    font-weight: bolder;
+    padding: 1%;
+    background-color: var(--pokemon-box);
+    border-radius: 0.625em;
+}
+
+.loadMore 
+{
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+
+
+@media screen and (max-width: 768px) 
+{
+    .pokemon-box 
+    {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+
+    .pokemon-box img 
+    {
+        max-width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 480px) 
+{
+    .pokemon-box 
+    {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .pokemon-box img 
+    {
+        max-width: 100%;
+    }
+}
