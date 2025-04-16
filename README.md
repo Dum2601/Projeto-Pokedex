@@ -1,7 +1,3 @@
-Perfeito! Aqui está o README atualizado com a seção **"🛠️ A Fazer"** incluída, nas versões em **português** e **inglês**:
-
----
-
 ## Projeto Pokedex
 
 Este projeto foi desenvolvido como parte dos meus estudos para praticar o consumo de **APIs** e o uso do **Fetch** com **JavaScript puro**.
