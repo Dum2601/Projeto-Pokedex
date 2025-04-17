@@ -1,40 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/reset.css">
     <link rel="stylesheet" href="./assets/style/style.css">
-    <title>Pokedéx</title>
+
+    <!-- font -->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- /font -->
+
+    <title>Pokedex</title>
 
 </head>
+<body class="pixel-font">
+    <nav class="page">
 
-<body>
+        <p>Pesquisar por Nome</p>
 
+        <p>Página</p>
+
+    </nav>
+    
     <main class="main">
 
-        <h2><img src="https://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-text-png-1428-1390.png" alt="Pokemon logo"></h2>
+        <section class="section">
 
-        <section class="pokemon-boxes">
+            <div class="pokeInfo">
 
-            
+                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif" alt="">
+                <h2 class="pokeName">Bulbasaur</h2>
+
+                <article class="pokeData">
+
+                    <p class="data">
+
+                        <ul>
+
+                            Type
+
+                        </ul>
+                        <ul>
+
+                            Evolution
+
+                        </ul>
+                        <ul>
+
+                            Moves
+
+                        </ul>
+                        <ul>
+
+                            Games
+
+                        </ul>
+
+                    </p>
+
+                </article>
+
+            </div>
 
         </section>
 
-        <div class="loadMore">
-
-            <button type="button" id="button">Load more</button>
-    
-        </div>
-
     </main>
 
-
-
-    <script src="./assets/code/main.js"></script>
-    <script src="./assets/code/more_pokemons.js"></script>
-    
+    <script src="./assets/code/util.js"></script>
 </body>
 </html>
+
+
