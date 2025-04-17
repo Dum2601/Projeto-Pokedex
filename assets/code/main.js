@@ -1,71 +1,9 @@
-const pokemonBoxes = document.querySelector('.pokemon-boxes')
+// Aqui serão enviadas as informações ao HTML
 
 
-function show_pokemons(more)
-{
-
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=${more}`
-
-    fetch(url)
-        .then(response => response.json())
-        .then(allPokemon => 
-        {
-
-            var pokemons = []
-
-            allPokemon.results.map(val => 
-            {
-
-                fetch(val.url)
-                    .then(response => response.json())
-                    .then(pokemonSingle => 
-                    {
-
-                        pokemons.push
-                        (
-
-                            {
-
-                                nome: val.name,
-                                imagem: pokemonSingle.sprites.front_default
-
-                            }
-
-                        )
-
-                        if (pokemons.length == more)
-                        {
-
-                            pokemonBoxes.innerHTML = ''
-
-                            console.log(pokemons)
-                            pokemons.map(val => 
-                            {
-
-                            pokemonBoxes.innerHTML += `
-                                
-                                <div class="pokemon-box">
-
-                                    <img src="${val.imagem}" alt="Ditto">
-                                    <p>${val.nome}</p>
-
-                                </div>
-
-                                `
 
 
-                            })
-
-                        }
-
-                    })
-
-            })
-
-        })
-
-
-    
-
-    }
-
+// -------------------------------------
+// Todo
+//O fundo mudará junto ao tipo do pokemon (verde = grama, vermelho = fogo...)
+//Na parte de baixo do pokemon haverá uma parte que mostrará algumas informações em um modal ao apertar em uma parte (tipo, informação pokedex e etc)
