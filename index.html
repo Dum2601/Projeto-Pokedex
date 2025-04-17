@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/reset.css">
     <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="./assets/style/modal.css">
 
     <!-- font -->
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -15,11 +16,11 @@
 
 </head>
 <body class="pixel-font">
-    <nav class="page">
+    <nav class="page modalBtn">
 
-        <p>Pesquisar por Nome</p>
+        <p>Search</p>
 
-        <p>Página</p>
+        <p>Page</p>
 
     </nav>
     
@@ -33,32 +34,12 @@
                 <h2 class="pokeName">Bulbasaur</h2>
 
                 <article class="pokeData">
-
-                    <p class="data">
-
-                        <ul>
-
-                            Type
-
-                        </ul>
-                        <ul>
-
-                            Evolution
-
-                        </ul>
-                        <ul>
-
-                            Moves
-
-                        </ul>
-                        <ul>
-
-                            Games
-
-                        </ul>
-
+                    <p>
+                        <ul class="modalBtn">Type</ul>
+                        <ul class="modalBtn">Evolution</ul>
+                        <ul class="modalBtn">Moves</ul>
+                        <ul class="modalBtn">Games</ul>
                     </p>
-
                 </article>
 
             </div>
@@ -67,7 +48,18 @@
 
     </main>
 
+    <div class="modal">
+
+        <div class="content">
+
+            <!-- Conteúdo do modal -->
+
+        </div>
+
+    </div>
+
     <script src="./assets/code/util.js"></script>
+    <script src="./assets/code/modal.js"></script>
 </body>
 </html>
 
