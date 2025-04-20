@@ -1,6 +1,6 @@
 const image_name = document.querySelector('.image_name')
 
-let currentIndex = 1 // É o currentIndex que muda os pokemon Pbs.: Caso o número não exista fica o gif de caregando (colocar tratamento para isso)
+let currentIndex = 2 // É o currentIndex que muda os pokemon Pbs.: Caso o número não exista fica o gif de caregando (colocar tratamento para isso)
 
 function callAPI(page) 
 {
