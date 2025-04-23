@@ -1,6 +1,6 @@
 const image_name = document.querySelector('.image_name')
 
-var currentIndex = 97 
+var currentIndex = 1
 let currentPokemon = null
 
 function callAPI(page) 

@@ -57,18 +57,50 @@ pokeData.forEach(poke => {
                 break
 
                 case 'evolution':
-
-                  const evol = currentPokemon.species.url
-
-                  fetch(evol)
-                    .then(response => response.json())
-                    .then(pokemonEvolution => {
-
-                        
-
-                    })
-
-                break
+                    const speciesUrl = currentPokemon.species.url
+                
+                    fetch(speciesUrl)
+                        .then(response => response.json())
+                        .then(speciesData => {
+                            const evolutionChainUrl = speciesData.evolution_chain.url
+                
+                            return fetch(evolutionChainUrl)
+                        })
+                        .then(response => response.json())
+                        .then(evolutionData => {
+                           
+                            let chain = evolutionData.chain
+                            let currentName = currentPokemon.name.toLowerCase()
+                            let nextEvolution = null
+                
+                           
+                            while (chain) {
+                                if (chain.species.name === currentName && chain.evolves_to.length > 0) {
+                                    nextEvolution = chain.evolves_to[0].species.name
+                                    break
+                                }
+                
+                                chain = chain.evolves_to[0] || null
+                            }
+                
+                            if (nextEvolution) {
+                                modalContent.innerHTML = `
+                                    <h3>Próxima Evolução</h3>
+                                    <p>${nextEvolution}</p>
+                                `
+                            } else {
+                                modalContent.innerHTML = `
+                                    <h3>Próxima Evolução</h3>
+                                    <p>Este Pokémon não evolui mais.</p>
+                                `
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Erro ao buscar evolução:", error)
+                            modalContent.innerHTML = `<p>Erro ao buscar evolução.</p>`
+                        })
+                    break
+                
 
                 case 'moves':
                 
