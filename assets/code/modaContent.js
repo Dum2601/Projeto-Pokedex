@@ -40,7 +40,6 @@ pokeData.forEach(poke => {
         ul.addEventListener('click', () => {
 
             const secondClass = ul.classList[1]
-            console.log(secondClass)
             modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
 
         })
