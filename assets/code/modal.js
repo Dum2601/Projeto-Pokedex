@@ -8,10 +8,14 @@ const switchModal = () =>
 
     if (actualStyle === 'block') 
     {
+        
         modal.style.display = 'none'
+
     } else 
     {
+        
         modal.style.display = 'block'
+    
     }
 }
 
