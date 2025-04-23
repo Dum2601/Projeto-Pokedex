@@ -30,8 +30,14 @@ nav
     padding: 1rem;
     padding-right: 10rem;
     padding-left: 10rem;
-    cursor: pointer;
     justify-content: space-between;
+
+}
+
+nav p 
+{
+
+    cursor: pointer;
 
 }
 
