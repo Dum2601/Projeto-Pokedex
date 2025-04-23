@@ -40,20 +40,33 @@ pokeData.forEach(poke => {
         ul.addEventListener('click', () => {
 
             const secondClass = ul.classList[1]
-            // modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
 
             switch(secondClass)
             {
 
                 case 'type':
 
-                    modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+                    const typeInfo = currentPokemon.types[0]
+
+                    modalContent.innerHTML = `
+                        <h3>Tipo do Pokémon</h3>
+                        <p><strong>Slot:</strong> ${typeInfo.slot}</p>
+                        <p><strong>Nome:</strong> ${typeInfo.type.name}</p>
+                    `
 
                 break
 
                 case 'evolution':
-                
-                    modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+
+                  const evol = currentPokemon.species.url
+
+                  fetch(evol)
+                    .then(response => response.json())
+                    .then(pokemonEvolution => {
+
+                        
+
+                    })
 
                 break
 

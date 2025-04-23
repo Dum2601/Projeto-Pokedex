@@ -1,6 +1,7 @@
 const image_name = document.querySelector('.image_name')
 
-let currentIndex = 97 // É o currentIndex que muda os pokemon Pbs.: Caso o número não exista fica o gif de caregando (colocar tratamento para isso)
+var currentIndex = 97 
+let currentPokemon = null
 
 function callAPI(page) 
 {
@@ -16,6 +17,9 @@ function callAPI(page)
                 .then(response => response.json())
                 .then(pokemon => 
                 {
+
+                    currentPokemon = pokemon
+
                     const nome = pokemon.name
                     const image = pokemon.sprites.other.showdown.front_default
 
