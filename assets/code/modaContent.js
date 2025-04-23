@@ -85,13 +85,12 @@ pokeData.forEach(poke => {
                 
                             if (nextEvolution) {
                                 modalContent.innerHTML = `
-                                    <h3>Próxima Evolução</h3>
+                                    <h3>Next Evolution</h3>
                                     <p>${nextEvolution}</p>
                                 `
                             } else {
                                 modalContent.innerHTML = `
-                                    <h3>Próxima Evolução</h3>
-                                    <p>Este Pokémon não evolui mais.</p>
+                                    <p>There's no evolution after.</p>
                                 `
                             }
                         })
@@ -103,16 +102,32 @@ pokeData.forEach(poke => {
                 
 
                 case 'moves':
+                    const pokeMoves = currentPokemon.moves
                 
-                    modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
-
+                    let moveList = pokeMoves.map((moveObj) => moveObj.move.name)
+                
+                    modalContent.innerHTML = `
+                        <h3>Moves</h3>
+                        ----------------------------
+                        <ul>
+                            ${moveList.map(move => `<li>${move}</li>`).join('')}
+                        </ul>
+                    `
                 break
+                    
 
                 case 'games':
+                    const pokeGames = currentPokemon.game_indices
                 
-                modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
-
+                    modalContent.innerHTML = `
+                        <h3>Game Appearances</h3>
+                        ----------------------------
+                        <ul>
+                            ${pokeGames.map(game => `<li>${game.version.name.charAt(0).toUpperCase() + game.version.name.slice(1)}</li>`).join('')}
+                        </ul>
+                    `
                 break
+                
 
             }
 
