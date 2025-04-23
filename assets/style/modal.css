@@ -21,16 +21,17 @@
 
 .modal .content {
     background-color: var(--menu-back-color);
-    margin: 15% auto; 
-    padding: 20px;
-    border-radius: 5px;
-    width: 70%; 
+    margin: 15% auto;
+    border: 10px double var(--menu-border-color);
+    border-radius: 12px;
+    width: 70%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 7%;
 
-    border: 10px double var(--menu-border-color);
-    border-radius: 12px;
 
+    max-height: 7vh;
+    overflow-y: auto;
 }
