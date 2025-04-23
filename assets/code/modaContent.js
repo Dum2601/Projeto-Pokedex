@@ -40,7 +40,36 @@ pokeData.forEach(poke => {
         ul.addEventListener('click', () => {
 
             const secondClass = ul.classList[1]
-            modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+            // modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+
+            switch(secondClass)
+            {
+
+                case 'type':
+
+                    modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+
+                break
+
+                case 'evolution':
+                
+                    modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+
+                break
+
+                case 'moves':
+                
+                    modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+
+                break
+
+                case 'games':
+                
+                modalContent.innerHTML = `<p>Teste ${secondClass}</p>`
+
+                break
+
+            }
 
         })
     })
