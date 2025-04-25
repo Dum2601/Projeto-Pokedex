@@ -62,10 +62,10 @@ const searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', () => 
 {
   modalContent.innerHTML = `
-    <div>
-      <label for="searchTextarea">Search by the name:</label>
+
+      <label for="searchTextarea" class="searchModal">Search by the name:</label>
       <textarea id="searchTextarea" placeholder="Search here and push enter in your keyboard"></textarea>
-    </div>
+
     <div class="image_name"></div>
   `
 
@@ -95,7 +95,7 @@ function callAPIByName(pokemonName, image_name)
     {
       if (!response.ok) 
       {
-        throw new Error('Pokémon não encontrado')
+        throw new Error('Not Found')
       }
       return response.json()
     })
@@ -146,8 +146,7 @@ pokeData.forEach(poke => {
                     const typeInfo = currentPokemon.types[0]
 
                     modalContent.innerHTML = `
-                        <h3>Tipo do Pokémon</h3>
-                        <p><strong>Slot:</strong> ${typeInfo.slot}</p>
+                        <h3>Type</h3>
                         <p><strong>Nome:</strong> ${typeInfo.type.name}</p>
                     `
 

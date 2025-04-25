@@ -137,6 +137,75 @@ ul
 }
 
 
+
+/* ---------------------------------- */
+
+.modal .content h3 {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.modal .content p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.modal .content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem auto;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.modal .content ul li {
+
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    width: fit-content;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.4;
+}
+
+.modal .content img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    image-rendering: pixelated;
+}
+
+
+.listPages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.listPages button {
+
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    transition: background-color 0.2s ease;
+}
+
+
+
+
+
+
 /* font */
 
     .pixel-font 
@@ -149,3 +218,80 @@ ul
     }
 
 /* /font */
+
+
+
+
+@media (max-width: 1024px) {
+    nav {
+        width: 100%;
+        padding: 1rem 2rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    body
+    {
+
+        background-color: var(--background-pokemon);
+
+    }
+
+    .pokeData {
+        right: 0;
+        width: 90%;
+        padding: 20px;
+    }
+
+    .pokeInfo img {
+        width: 120px;
+    }
+
+    .pokeName {
+        right: 0;
+        margin: 5% auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        box-shadow: none;
+        border-radius: 50px 50px 0 0;
+        padding-top: 2rem;
+        width: 95%;
+    }
+
+    .pokeData {
+        padding: 15px;
+    }
+
+    .image_name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .pixel-font {
+        font-size: 10px;
+    }
+
+    .pokeData {
+        padding: 10px;
+    }
+
+    nav p {
+        font-size: 10px;
+    }
+
+    #selectPageBtn {
+        padding: 8px 14px;
+        font-size: 10px;
+    }
+
+    .pokeInfo img {
+        width: 100px;
+    }
+}
