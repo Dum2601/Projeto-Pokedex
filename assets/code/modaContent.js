@@ -3,13 +3,49 @@ const modalContent = document.querySelector('.content')
 // ---------------------------------------------------------------------------
 // Page Modal
 
+
 const pageBtn = document.getElementById('pageBtn')
 
 pageBtn.addEventListener('click', () => {
 
-    modalContent.innerHTML = `<p>Teste Page</p>`
+    const urlPokemonList = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
+
+    fetch(urlPokemonList)
+        .then(response => response.json())
+        .then(pokemonListLength => {
+
+            const pagesLength = pokemonListLength.count // Return the lenght of the pokemons array
+
+            function listPages()
+            {
+                let pages = []
+
+                for (i = 0; i <= pagesLength; i++)
+                    {
+        
+                        let modalContentPages = `<button id="selectPageBtn">${i}</button>`
+                        pages.push(modalContentPages)
+        
+                    }
+
+                return pages
+
+            }
+
+            modalContent.innerHTML = `<div class="listPages">${listPages()}</div>`
+
+
+        })
 
 })
+
+// const pageBtn = document.getElementById('pageBtn')
+
+// pageBtn.addEventListener('click', () => {
+
+//     modalContent.innerHTML = `<p>Teste Page</p>`
+
+// })
 
 
 // ----------------------------------------------------------------------------
