@@ -22,7 +22,7 @@ function callAPI(page)
 
                     const nome = pokemon.name
                     const image = pokemon.sprites.other.showdown.front_default
-
+                    
                     image_name.innerHTML = `
                         <img src="${image}" alt="Pokemon Image">
                         <h2 class="pokeName">${nome}</h2>

@@ -54,20 +54,73 @@ pageBtn.addEventListener('click', () => {
 
 
 
-
-
-// ----------------------------------------------------------------------------
-
 // ----------------------------------------------------------------------------
 // Search Modal
 
 const searchBtn = document.getElementById('searchBtn')
 
-searchBtn.addEventListener('click', () => {
+searchBtn.addEventListener('click', () => 
+{
+  modalContent.innerHTML = `
+    <div>
+      <label for="searchTextarea">Search by the name:</label>
+      <textarea id="searchTextarea" placeholder="Search here and push enter in your keyboard"></textarea>
+    </div>
+    <div class="image_name"></div>
+  `
 
-    modalContent.innerHTML = `<p>Teste Search</p>`
+  const image_name = document.querySelector('.image_name')
+  const searchTextarea = document.getElementById('searchTextarea')
 
+  searchTextarea.addEventListener('keydown', event => 
+  {
+    if (event.key === 'Enter') 
+    {
+      event.preventDefault()
+      const pokemonName = searchTextarea.value.trim()
+      if (pokemonName !== '') 
+      {
+        callAPIByName(pokemonName, image_name)
+      }
+    }
+  })
 })
+
+function callAPIByName(pokemonName, image_name) 
+{
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
+
+  fetch(url)
+    .then(response => 
+    {
+      if (!response.ok) 
+      {
+        throw new Error('Pokémon não encontrado')
+      }
+      return response.json()
+    })
+    .then(pokemon => 
+    {
+      currentPokemon = pokemon
+
+      const nome = pokemon.name
+      const image = pokemon.sprites.other.showdown.front_default
+
+      image_name.innerHTML = `
+        <img src="${image}" alt="Pokemon Image">
+        <h2 class="pokeName">${nome}</h2>
+      `
+    })
+    .catch(error => 
+    {
+      console.error("Error: ", error)
+      image_name.innerHTML = `<p>Not found. Try again.</p>`
+    })
+    switchModal()
+}
+
+
+
 
 
 // ------------------------------------------------------------------------------
