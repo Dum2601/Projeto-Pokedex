@@ -146,8 +146,7 @@ pokeData.forEach(poke => {
                     const typeInfo = currentPokemon.types[0]
 
                     modalContent.innerHTML = `
-                        <h3>Tipo do Pokémon</h3>
-                        <p><strong>Slot:</strong> ${typeInfo.slot}</p>
+                        <h3>Type</h3>
                         <p><strong>Nome:</strong> ${typeInfo.type.name}</p>
                     `
 
