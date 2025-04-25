@@ -20,7 +20,7 @@ pageBtn.addEventListener('click', () => {
             {
                 let pages = []
 
-                for (i = 0; i <= pagesLength; i++)
+                for (i = 1; i <= pagesLength; i++)
                     {
         
                         let modalContentPages = `<button id="selectPageBtn"">${i}</button>`
