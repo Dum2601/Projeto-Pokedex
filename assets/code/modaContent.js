@@ -54,20 +54,66 @@ pageBtn.addEventListener('click', () => {
 
 
 
-
-
-// ----------------------------------------------------------------------------
-
 // ----------------------------------------------------------------------------
 // Search Modal
 
-const searchBtn = document.getElementById('searchBtn')
+const searchBtn = document.getElementById('searchBtn');
 
 searchBtn.addEventListener('click', () => {
+  modalContent.innerHTML = `
 
-    modalContent.innerHTML = `<p>Teste Search</p>`
+    <div>
+      <label for="searchTextarea">Search by the name:</label>
+      <textarea id="searchTextarea" placeholder="Search here and push enter in your keyboard"></textarea>
+    </div>
+
+  `
+
+  const textarea = document.getElementById('searchTextarea')
+
+  textarea.addEventListener('keydown', async function (event) {
+    if (event.key === 'Enter' && !event.shiftKey) 
+    {
+      event.preventDefault();
+      const value = textarea.value.trim().toLowerCase()
+
+    if (!value) 
+    {
+        alert("Por favor, digite um nome de Pokémon.")
+        return
+    }
+
+      const urlName = `https://pokeapi.co/api/v2/pokemon/${value}`
+
+    try 
+    {
+        const response = await fetch(urlName)
+        if (!response.ok) 
+        {
+    throw new Error("Not Found")
+    }
+
+    const data = await response.json()
+
+    const nome = data.name
+    const image = data.sprites.other.showdown.front_default
+
+    image_name.innerHTML = `
+        <img src="${image}" alt="Pokemon Image">
+        <h2 class="pokeName">${nome}</h2>
+    `
+    } catch (error) {
+    image_name.innerHTML = `<p style="color: red;">Erro: ${error.message}</p>`
+      }
+      switchModal()
+    }
+
+
+  })
 
 })
+
+
 
 
 // ------------------------------------------------------------------------------
