@@ -12,7 +12,8 @@ Este projeto foi desenvolvido como parte dos meus estudos para praticar o consum
 ### 🛠️ A Fazer
 
 - [ ] Responsividade  
-- [ ] Melhoria gráfica e layout visual  
+- [ ] Melhoria gráfica e layout visual
+- [ ] Mudar a cor do fundo quando mudar o pokemon 
 
 ---
 
@@ -30,4 +31,5 @@ This project was created as part of my studies to practice **API consumption** a
 ### 🛠️ To Do
 
 - [ ] Make the layout responsive  
-- [ ] Improve the UI and visual design  
+- [ ] Improve the UI and visual design
+- [ ] Change background color when choose a pokemon
