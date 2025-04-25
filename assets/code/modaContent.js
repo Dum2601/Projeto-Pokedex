@@ -62,10 +62,10 @@ const searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', () => 
 {
   modalContent.innerHTML = `
-    <div>
-      <label for="searchTextarea">Search by the name:</label>
+
+      <label for="searchTextarea" class="searchModal">Search by the name:</label>
       <textarea id="searchTextarea" placeholder="Search here and push enter in your keyboard"></textarea>
-    </div>
+
     <div class="image_name"></div>
   `
 
@@ -95,7 +95,7 @@ function callAPIByName(pokemonName, image_name)
     {
       if (!response.ok) 
       {
-        throw new Error('Pokémon não encontrado')
+        throw new Error('Not Found')
       }
       return response.json()
     })
