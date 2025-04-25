@@ -23,29 +23,36 @@ pageBtn.addEventListener('click', () => {
                 for (i = 0; i <= pagesLength; i++)
                     {
         
-                        let modalContentPages = `<button id="selectPageBtn">${i}</button>`
+                        let modalContentPages = `<button id="selectPageBtn"">${i}</button>`
                         pages.push(modalContentPages)
         
                     }
 
-                return pages
+                return pages.join('')
 
             }
 
             modalContent.innerHTML = `<div class="listPages">${listPages()}</div>`
 
+            const selectPageBtns = document.querySelectorAll('#selectPageBtn')
+            selectPageBtns.forEach(button => {
+                button.addEventListener('click', (event) => {
+
+                    const pageValue = event.target.innerText
+
+                    callAPI(pageValue) 
+                })
+            })
 
         })
 
 })
 
-// const pageBtn = document.getElementById('pageBtn')
 
-// pageBtn.addEventListener('click', () => {
 
-//     modalContent.innerHTML = `<p>Teste Page</p>`
 
-// })
+
+
 
 
 // ----------------------------------------------------------------------------
