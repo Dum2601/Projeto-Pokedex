@@ -41,6 +41,7 @@ pageBtn.addEventListener('click', () => {
                     const pageValue = event.target.innerText
 
                     callAPI(pageValue) 
+                    switchModal()
                 })
             })
 
