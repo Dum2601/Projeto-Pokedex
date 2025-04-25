@@ -57,61 +57,69 @@ pageBtn.addEventListener('click', () => {
 // ----------------------------------------------------------------------------
 // Search Modal
 
-const searchBtn = document.getElementById('searchBtn');
+const searchBtn = document.getElementById('searchBtn')
 
-searchBtn.addEventListener('click', () => {
+searchBtn.addEventListener('click', () => 
+{
   modalContent.innerHTML = `
-
     <div>
       <label for="searchTextarea">Search by the name:</label>
       <textarea id="searchTextarea" placeholder="Search here and push enter in your keyboard"></textarea>
     </div>
-
+    <div class="image_name"></div>
   `
 
-  const textarea = document.getElementById('searchTextarea')
+  const image_name = document.querySelector('.image_name')
+  const searchTextarea = document.getElementById('searchTextarea')
 
-  textarea.addEventListener('keydown', async function (event) {
-    if (event.key === 'Enter' && !event.shiftKey) 
+  searchTextarea.addEventListener('keydown', event => 
+  {
+    if (event.key === 'Enter') 
     {
-      event.preventDefault();
-      const value = textarea.value.trim().toLowerCase()
-
-    if (!value) 
-    {
-        alert("Por favor, digite um nome de Pokémon.")
-        return
+      event.preventDefault()
+      const pokemonName = searchTextarea.value.trim()
+      if (pokemonName !== '') 
+      {
+        callAPIByName(pokemonName, image_name)
+      }
     }
+  })
+})
 
-      const urlName = `https://pokeapi.co/api/v2/pokemon/${value}`
+function callAPIByName(pokemonName, image_name) 
+{
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
+  let currentPokemon = null
 
-    try 
+  fetch(url)
+    .then(response => 
     {
-        const response = await fetch(urlName)
-        if (!response.ok) 
-        {
-    throw new Error("Not Found")
-    }
+      if (!response.ok) 
+      {
+        throw new Error('Pokémon não encontrado')
+      }
+      return response.json()
+    })
+    .then(pokemon => 
+    {
+      currentPokemon = pokemon
 
-    const data = await response.json()
+      const nome = pokemon.name
+      const image = pokemon.sprites.other.showdown.front_default
 
-    const nome = data.name
-    const image = data.sprites.other.showdown.front_default
-
-    image_name.innerHTML = `
+      image_name.innerHTML = `
         <img src="${image}" alt="Pokemon Image">
         <h2 class="pokeName">${nome}</h2>
-    `
-    } catch (error) {
-    image_name.innerHTML = `<p style="color: red;">Erro: ${error.message}</p>`
-      }
-      switchModal()
-    }
+      `
+    })
+    .catch(error => 
+    {
+      console.error("Error: ", error)
+      image_name.innerHTML = `<p>Not found. Try again.</p>`
+    })
+    switchModal()
+}
 
-
-  })
-
-})
 
 
 
