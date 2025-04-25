@@ -89,7 +89,6 @@ searchBtn.addEventListener('click', () =>
 function callAPIByName(pokemonName, image_name) 
 {
   const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
-  let currentPokemon = null
 
   fetch(url)
     .then(response => 
