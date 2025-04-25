@@ -40,6 +40,13 @@
 
 }
 
+textarea
+{
+
+    text-align: center;
+
+}
+
 @media (max-width: 768px) {
     .modal .content {
         padding: 6%;
